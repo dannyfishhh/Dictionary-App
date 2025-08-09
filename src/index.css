@@ -45,7 +45,7 @@ h1 {
     max-width: 26rem;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem 0rem;
+    padding: 3rem 0rem 0rem 0rem;
 }
 
 input[type='text'] {
@@ -89,9 +89,16 @@ input[type='text']:hover {
     border:#1e1f26 2px solid;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
 .results {
     width: 90%;
     max-width: 25rem;
+    padding-top: 2rem;
 }
 
 .word-icon {

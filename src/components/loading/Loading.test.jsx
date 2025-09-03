@@ -8,7 +8,11 @@ describe("Loading component", () => {
     it("renders the loading screen", () => {
         render(<Loading />);
 
+        // test set up
+
         const skeletonElements = screen.getAllByRole('loading');
+
+        // test results
 
         expect(skeletonElements).toHaveLength(4);
     });

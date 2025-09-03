@@ -1,5 +1,5 @@
 html{
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(16px, 2vw, 20px); /* allows for responsive font sizing and rem units across the document */
 }
 
 * {
@@ -15,6 +15,7 @@ html, body {
     width: 100%;
 }
 
+/* setting background */
 body {
     background-color: #b393dd;
     display: flex;
@@ -22,6 +23,7 @@ body {
     justify-content: center;
 }
 
+/* setting the off-white container */
 .container {
     display: flex;
     flex-direction: column;
@@ -34,6 +36,7 @@ body {
     max-width: 34rem;
 }
 
+/* SearchBar Component */
 h1 {
     text-decoration: underline;
     font-size: 1.4rem;
@@ -94,6 +97,8 @@ input[type='text']:hover {
     font-size: 0.8rem;
     margin-top: 0.5rem;
 }
+
+/* Results Component */
 
 .results {
     width: 90%;
@@ -160,6 +165,8 @@ h1 {
     align-items: center;
 }
 
+/* Error Component - it inherits much of the same as the Results Component */
+
 .error {
     color: #ff3131 !important;
 }
@@ -168,6 +175,8 @@ h1 {
     color: #ff5757 !important;
     border-color: #ff3131 !important;
 }
+
+/* Loading Component */
 
 .loading {
     width: 90%;

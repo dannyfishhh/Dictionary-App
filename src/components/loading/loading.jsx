@@ -1,7 +1,9 @@
 import React from "react";
 
 function Loading() {
-    
+  
+  // returns a skeleton loading screen with pulsing effect
+
   return (
     <div className="loading" data-testid="loading">
       <div className="skeleton skeleton-word" role="loading"></div>

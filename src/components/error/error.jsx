@@ -2,6 +2,8 @@ import React from "react";
 
 function Error(props) {
 
+    // takes the error state from useResults and renders it accordingly
+
     const error = props.error;
     
     return(

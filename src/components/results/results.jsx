@@ -3,10 +3,16 @@ import React from 'react';
 
 function Results(props) {
 
+  // takes the result state from useResults and renders it accordingly
+
     const { result } = props;
+
+    // checks if the results contain an example or audio, which is then later added or omitted from rendering
 
     const hasExample = result[0].meanings[0]?.definitions[0]?.example;
     const hasAudio = result[0].phonetics[0]?.audio;
+
+    // event handler for audio button
 
     const handleClick = () => {
       new Audio(hasAudio).play();

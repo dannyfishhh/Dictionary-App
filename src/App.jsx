@@ -6,8 +6,11 @@ import useResults from './helpers/useResults';
 import React from 'react';
 
 function App() {
+
+  // imports the custom hook for cleaner code
   const { result, error, loading, returnResults } = useResults();
 
+  // renders the components based on the current state
   return (
     <div className='container'>
       <SearchBar returnResults={returnResults} />

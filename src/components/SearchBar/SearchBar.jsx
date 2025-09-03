@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 
 function SearchBar(props) {
 
+    // takes in a function as a prop
+
     const { returnResults } = props;
+
+    // sets state for the text input to be updated, and for an error message state
 
     const [input, setInput] = useState('');
     const [error, setError] = useState('');
+
+    // event handlers: update text input, clear error message, and submit form
 
     const handleInputChange = (e) => {
         setInput(e.target.value);

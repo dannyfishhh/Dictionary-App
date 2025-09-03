@@ -1,12 +1,9 @@
-# React + Vite
+This application makes use of a free dictionary API in order to return the word type, definition, example, and a playable sound.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It makes use of custom hooks to keep the App component clean, and an apiFetch function to keep the custom hooks clean.
 
-Currently, two official plugins are available:
+The default screen is the results for the word 'joy' because it makes me happy! And as you search the previous search will be persisted in the localStorage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+There is component testing to check the each element renders properly within each component, and changes under the correct circumstances, and also integration testing to check these elements render under the relevant user events.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The styling should be responsive to all sizes from a large laptop through to an iPhone SE.

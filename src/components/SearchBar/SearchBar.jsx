@@ -26,10 +26,10 @@ function SearchBar(props) {
 
     return (
         <>
-            <div className='word-search' data-testid="searchBar">
+            <form className='word-search' data-testid="searchBar">
                 <input value={input} onClick={handleClick} onChange={handleInputChange} style={error ? { borderColor: 'red', borderWidth: '2px', borderStyle: 'solid' } : {}} type='text' placeholder='Type the word here' className='word-input' />
                 <button className='submit-button' onClick={handleSubmit}>Search</button>
-            </div>
+            </form>
             {error && <p className='error-message'>{error}</p>}
         </>
 

@@ -1,9 +1,11 @@
+import React from "react";
+
 function Error(props) {
 
     const error = props.error;
     
     return(
-        <div className='results error'>
+        <div className='results error' data-testid="error">
             <div className='word-icon'>
                 <h1 className='word error'>error</h1>
             </div>

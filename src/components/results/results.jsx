@@ -1,11 +1,12 @@
 import brand_awareness from '../../assets/brand_awareness.svg';
+import React from 'react';
 
 function Results(props) {
 
     const { result } = props;
 
-    const hasExample = result[0].meanings[0].definitions[0].example;
-    const hasAudio = result[0].phonetics[0].audio;
+    const hasExample = result[0].meanings[0]?.definitions[0]?.example;
+    const hasAudio = result[0].phonetics[0]?.audio;
 
     const handleClick = () => {
       new Audio(hasAudio).play();
@@ -13,7 +14,7 @@ function Results(props) {
     };
 
     return (
-        <div className='results'>
+        <div className='results' data-testid="results">
           <div className='word-icon'>
             <h1 className='word'>{result[0].word}</h1>
             {hasAudio && <button className='icon-button' onClick={handleClick}>

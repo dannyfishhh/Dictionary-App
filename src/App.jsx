@@ -1,10 +1,11 @@
-import Results from './components/results/results';
-import SearchBar from './components/search-bar/search-bar';
-import Error from './components/error/error';
-import Loading from './components/loading/loading';
+import Results from './components/Results/Results';
+import SearchBar from './components/SearchBar/SearchBar';
+import Error from './components/Error/Error';
+import Loading from './components/Loading/Loading';
 import { useState } from 'react';
-import apiFetch, {defaultResult} from './functions/apiFetch';
-
+import apiFetch from './helpers/apiFetch';
+import { defaultResult } from './helpers/defaultResult';
+import React from 'react';
 
 function App() {
   const [result, setResult] = useState(defaultResult);

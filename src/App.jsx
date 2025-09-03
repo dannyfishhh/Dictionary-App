@@ -2,7 +2,7 @@ import Results from './components/Results/Results';
 import SearchBar from './components/SearchBar/SearchBar';
 import Error from './components/Error/Error';
 import Loading from './components/Loading/Loading';
-import { useResults } from './helpers/useResults';
+import useResults from './helpers/useResults';
 import React from 'react';
 
 function App() {

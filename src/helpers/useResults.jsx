@@ -1,9 +1,9 @@
 import { useState } from "react";
 import apiFetch from './apiFetch';
-import { defaultResult } from "./defaultResult";
+import useLocalStorage, { saveData } from "./useLocalStorage";
 
 const useResults = () => {
-    const [result, setResult] = useState(defaultResult);
+    const [result, setResult] = useLocalStorage();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -14,10 +14,11 @@ const useResults = () => {
             const data = await apiFetch(word);
             setResult(data);
             console.log(data);
-            setLoading(false);
+            saveData(data);
         } catch (error) {
             console.error('Error fetching results:', error);
             setError(error);
+        } finally {
             setLoading(false);
         }
     };
@@ -25,4 +26,4 @@ const useResults = () => {
     return { result, error, loading, returnResults };
 }
 
-export { useResults };
+export default useResults;

@@ -15,6 +15,7 @@ describe("App", () => {
 
     afterEach(() => {
         vi.clearAllMocks();
+        localStorage.clear();
     })
 
     it("Should have correct landing page", () => {

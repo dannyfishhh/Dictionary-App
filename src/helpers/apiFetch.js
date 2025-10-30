@@ -1,6 +1,8 @@
 // separated the API call into a distinct function for better testing
 // this function directly returns custom errors depending on the fetch request for a specific word
 
+import { transformResults } from "./transformResults";
+
 const apiFetch = async (word) => {
     const apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
@@ -17,8 +19,11 @@ const apiFetch = async (word) => {
             }
         }
 
-        //otherwise return object
-        return await response.json();
+        // otherwise create object and transform results for simpler use in the app
+        const result = await response.json();
+
+        return transformResults(result);
+
     } catch (error) {
         
         // log error

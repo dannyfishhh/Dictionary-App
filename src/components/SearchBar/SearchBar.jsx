@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './SearchBar.module.css';
 
 function SearchBar(props) {
 
@@ -32,11 +33,11 @@ function SearchBar(props) {
 
     return (
         <>
-            <form className='word-search' data-testid="searchBar">
-                <input value={input} onClick={handleClick} onChange={handleInputChange} style={error ? { borderColor: 'red', borderWidth: '2px', borderStyle: 'solid' } : {}} type='text' placeholder='Type the word here' className='word-input' />
-                <button className='submit-button' onClick={handleSubmit}>Search</button>
+            <form className={styles['word-search']} data-testid="searchBar">
+                <input value={input} onClick={handleClick} onChange={handleInputChange} type='text' placeholder='Type the word here' className={`${styles['word-input']} ${error ? styles['error-input'] : ''}`} />
+                <button className={styles['submit-button']} onClick={handleSubmit}>Search</button>
             </form>
-            {error && <p className='error-message'>{error}</p>}
+            {error && <p className={styles['error-message']}>{error}</p>}
         </>
 
     )

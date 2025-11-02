@@ -1,4 +1,5 @@
 import brand_awareness from '../../assets/brand_awareness.svg';
+import styles from './Results.module.css';
 import React from 'react';
 
 function Results(props) {
@@ -9,27 +10,27 @@ function Results(props) {
 
     // checks if the results contain an example or audio, which is then later added or omitted from rendering
 
-    const hasExample = result[0].meanings[0]?.definitions[0]?.example;
-    const hasAudio = result[0].phonetics[0]?.audio;
+    const hasExample = result.example;
+    const hasAudio = result.audio;
 
     // event handler for audio button
 
     const handleClick = () => {
       new Audio(hasAudio).play();
-      console.log('Audio played for:', result[0].word);
+      console.log('Audio played for:', result.word);
     };
 
     return (
-        <div className='results' data-testid="results">
-          <div className='word-icon'>
-            <h1 className='word'>{result[0].word}</h1>
-            {hasAudio && <button className='icon-button' onClick={handleClick}>
-              <img src={brand_awareness} className='icon' alt='Brand Awareness Icon' />
+        <div className={styles.results} data-testid="results">
+          <div className={styles['word-icon']}>
+            <h1 className={styles.word}>{result.word}</h1>
+            {hasAudio && <button className={styles  ['icon-button']} onClick={handleClick}>
+              <img src={brand_awareness} className={styles.icon} alt='Brand Awareness Icon' />
             </button>}
           </div>
-          <h2 className='word-type'>{result[0].meanings[0].partOfSpeech}</h2>
-          <p className='definition'>{result[0].meanings[0].definitions[0].definition}</p>
-          {hasExample && <p className='example-sentence'>{result[0].meanings[0].definitions[0].example}</p>}
+          <h2 className={styles['word-type']}>{result.wordType}</h2>
+          <p className={styles.definition}>{result.definition}</p>
+          {hasExample && <p className={styles['example-sentence']}>{result.example}</p>}
         </div>
     );
 }

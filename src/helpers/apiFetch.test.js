@@ -12,19 +12,36 @@ describe("apiFetch", () => {
 
     it("returns a JSON object when the fetch is successful", async () => {
         
-        //sets mockData as a valid response
-        const mockData = [{word: 'test', meanings: []}];
+        // sets mock API response shaped like the real API (an array)
+        const mockApiResponse = [
+            {
+                word: 'test',
+                phonetics: [{ audio: '' }],
+                meanings: [
+                    { partOfSpeech: 'noun', definitions: [{ definition: 'a test definition', example: 'an example' }] }
+                ]
+            }
+        ];
+        // expected transformed data
+        const mockTransformedData = {
+           word: "test",
+           audio: null,
+           wordType: "noun",
+           definition: "a test definition",
+           example: "an example"
+        };
+
         fetch.mockResolvedValueOnce({
             ok: true,
-            json: async () => mockData
-        })
+            json: async () => mockApiResponse
+        });
 
         // mock API function call
         const result = await apiFetch('test');
 
         // test results
         expect(fetch).toHaveBeenCalledWith('https://api.dictionaryapi.dev/api/v2/entries/en/test');
-        expect(result).toEqual(mockData);
+        expect(result).toEqual(mockTransformedData);
     });
 
     it("throws a 'not found' error when status is 404", async () => {
@@ -34,12 +51,12 @@ describe("apiFetch", () => {
             status: 404
         });
 
-        // test set up and mocked API call
+        // test set up
         const expected = { type: 'not found', message: "that word doesn't exist." };
-        const result = apiFetch('fakeword');
 
         // test result
-        expect(result).rejects.toEqual(expected);
+        // mocked API call occurs in here for better error handling
+        expect(apiFetch('fakeword')).rejects.toEqual(expected);
     });
 
     it("throws a 'network' error for other non-ok responses", async () => {
@@ -49,12 +66,12 @@ describe("apiFetch", () => {
             status: 500
         });
 
-        // test set up and mocked API call
+        // test set up
         const expected = { type: 'network', message: 'network response was not ok' };
-        const result = apiFetch('networkerror');
 
         // test results
-        expect(result).rejects.toEqual(expected);
+        // mocked API call occurs in here for better error handling
+        expect(apiFetch('networkerror')).rejects.toEqual(expected);
     
     });
 
@@ -64,9 +81,9 @@ describe("apiFetch", () => {
 
         // test set up and mocked API call
         const expected = { type: 'fetch', message: "couldn't connect to API." };
-        const result = apiFetch('fetcherror');
 
         // test results
-        expect(result).rejects.toEqual(expected);
+        // mocked API call occurs in here for better error handling
+        expect(apiFetch('fetcherror')).rejects.toEqual(expected);
     });
 });

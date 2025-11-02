@@ -1,0 +1,10 @@
+/* Error Component - it inherits much of the same as the Results Component */
+
+.error {
+    color: #ff3131 !important;
+}
+
+.error-light {
+    color: #ff5757 !important;
+    border-color: #ff3131 !important;
+}

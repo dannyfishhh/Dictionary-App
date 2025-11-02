@@ -1,4 +1,6 @@
 import React from "react";
+import errorStyles from './Error.module.css';
+import resultStyles from '../Results/Results.module.css';
 
 function Error(props) {
 
@@ -7,13 +9,13 @@ function Error(props) {
     const error = props.error;
     
     return(
-        <div className='results error' data-testid="error">
-            <div className='word-icon'>
-                <h1 className='word error'>error</h1>
+        <div className={`${resultStyles.results} ${resultStyles.error}`} data-testid="error">
+            <div className={resultStyles['word-icon']}>
+                <h1 className={`${resultStyles.word} ${errorStyles.error}`}>error</h1>
             </div>
-            <h2 className='word-type error-light'>{error.type}!</h2>
-            <p className='definition error'>{error.message}</p>
-            <p className='example-sentence error-light'>please try again</p>
+            <h2 className={`${resultStyles['word-type']} ${errorStyles['error-light']}`}>{error.type}!</h2>
+            <p className={`${resultStyles.definition} ${errorStyles.error}`}>{error.message}</p>
+            <p className={`${resultStyles['example-sentence']} ${errorStyles['error-light']}`}>please try again</p>
         </div>
     )
 }

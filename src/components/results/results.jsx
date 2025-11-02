@@ -1,4 +1,5 @@
 import brand_awareness from '../../assets/brand_awareness.svg';
+import styles from './Results.module.css';
 import React from 'react';
 
 function Results(props) {
@@ -20,16 +21,16 @@ function Results(props) {
     };
 
     return (
-        <div className='results' data-testid="results">
-          <div className='word-icon'>
-            <h1 className='word'>{result.word}</h1>
-            {hasAudio && <button className='icon-button' onClick={handleClick}>
-              <img src={brand_awareness} className='icon' alt='Brand Awareness Icon' />
+        <div className={styles.results} data-testid="results">
+          <div className={styles['word-icon']}>
+            <h1 className={styles.word}>{result.word}</h1>
+            {hasAudio && <button className={styles  ['icon-button']} onClick={handleClick}>
+              <img src={brand_awareness} className={styles.icon} alt='Brand Awareness Icon' />
             </button>}
           </div>
-          <h2 className='word-type'>{result.wordType}</h2>
-          <p className='definition'>{result.definition}</p>
-          {hasExample && <p className='example-sentence'>{result.example}</p>}
+          <h2 className={styles['word-type']}>{result.wordType}</h2>
+          <p className={styles.definition}>{result.definition}</p>
+          {hasExample && <p className={styles['example-sentence']}>{result.example}</p>}
         </div>
     );
 }
